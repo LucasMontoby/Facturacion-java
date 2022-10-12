@@ -18,12 +18,17 @@ public class VentaModel {
     @Column
     private Double total;
 
+    @OneToMany
+    @JoinColumn(name = "cliente_id")
+    private ClientesModel clienteModel;
+
+    public VentaModel() {
+    }
+
     public VentaModel(Long id, Data fecha_alta, Double total) {
         this.id = id;
         this.fecha_alta = fecha_alta;
         this.total = total;
     }
 
-    public VentaModel() {
-    }
 }

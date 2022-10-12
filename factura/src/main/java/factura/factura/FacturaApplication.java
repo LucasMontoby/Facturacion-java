@@ -23,6 +23,9 @@ public class FacturaApplication {
 	@Autowired
 	VentaModel VentaModelRepository;
 
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
     	SpringApplication.run(JpaServiceApplication.class, args);
     }
