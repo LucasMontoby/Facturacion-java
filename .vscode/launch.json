@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-FacturaApplication<factura>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "factura.factura.FacturaApplication",
+            "projectName": "factura",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

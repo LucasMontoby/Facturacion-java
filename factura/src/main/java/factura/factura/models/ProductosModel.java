@@ -2,11 +2,13 @@ package factura.factura.models;
 
 import lombok.Data;
 
+import java.time.LocalDate;
+
 import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "productosModel")
+@Table(name = "productos")
 public class ProductosModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,28 +21,15 @@ public class ProductosModel {
     private String descripcion;
 
     @Column
-    private Double preciCompra;
+    private Double precio_compra;
 
     @Column
-    private Double precioVenta;
+    private Double precio_venta;
 
     @Column
     private int stock;
 
     @Column
-    private Data fecha_alta;
-    
-    public ProductosModel() {
-    }
+    private LocalDate fecha_alta;
 
-    public ProductosModel(Long id, String sku, String descripcion, Double preciCompra, Double precioVenta, final int stock,
-            Data fecha_alta) {
-        this.id = id;
-        this.sku = sku;
-        this.descripcion = descripcion;
-        this.preciCompra = preciCompra;
-        this.precioVenta = precioVenta;
-        this.stock = stock;
-        this.fecha_alta = fecha_alta;
-    }
 }

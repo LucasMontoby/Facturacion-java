@@ -2,6 +2,10 @@ package factura.factura.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ClientesRepository extends JpaRepository<ClientesRepository, Long>{
-    
+import factura.factura.models.ClientesModel;
+
+public interface ClientesRepository extends JpaRepository<ClientesModel, Long>{
+
+
 }
+

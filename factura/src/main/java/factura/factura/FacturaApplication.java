@@ -1,30 +1,38 @@
 package factura.factura;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import factura.factura.models.ClientesModel;
-import factura.factura.models.Detalle_ventaModel;
-import factura.factura.models.ProductosModel;
-import factura.factura.models.VentaModel;
+
+import factura.factura.repository.ClientesRepository;
+import factura.factura.repository.DetalleVentaRepository;
+import factura.factura.repository.ProductosRepository;
+import factura.factura.repository.VentaRepository;
 
 @SpringBootApplication
-public class FacturaApplication {
+public class FacturaApplication implements CommandLineRunner {
 
 	@Autowired
-	ClientesModel clientesModelReposotory;
+	ClientesRepository clientesModelRepository;
 
 	@Autowired
-	Detalle_ventaModel Detalle_ventaModelRepository;
+	DetalleVentaRepository DetalleVentaModelRepository;
 
 	@Autowired
-	ProductosModel ProductosModelRepository;
+	ProductosRepository ProductosModelRepository;
 
 	@Autowired
-	VentaModel VentaModelRepository;
+	VentaRepository VentaModelRepository;
 
 
     public static void main(String[] args) {
     	SpringApplication.run(FacturaApplication.class, args);
     }
+
+
+	@Override
+	public void run(String... args) throws Exception {
+		SpringApplication.run(FacturaApplication.class, args);
+	}
 }

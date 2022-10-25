@@ -1,12 +1,14 @@
 package factura.factura.models;
 
+import java.time.LocalDate;
+
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "clientesModel")
+@Table(name = "clientes")
 public class ClientesModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,18 +23,7 @@ public class ClientesModel {
     @Column
     private String apellido;
 
-    @Column
-    private Data fecha_nacimiento;
-
-    public ClientesModel() {
-    }
-
-    public ClientesModel(Long id, String dni, String nombre, String apellido, Data fecha_nacimiento) {
-        this.id = id;
-        this.dni = dni;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fecha_nacimiento = fecha_nacimiento;
-    }
+    @Column (name= "fecha_nacimiento")
+    private LocalDate fechaNacimiento;
 
 }

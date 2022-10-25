@@ -2,6 +2,8 @@ package factura.factura.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductosRepository extends JpaRepository<ProductosRepository, Long>{
+import factura.factura.models.ProductosModel;
+
+public interface ProductosRepository extends JpaRepository<ProductosModel, Long>{
     
 }
