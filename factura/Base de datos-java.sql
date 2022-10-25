@@ -30,3 +30,19 @@ create table productos (id int primary key auto_increment not null,
                                 subtotal double,
                                 CONSTRAINT `fk_venta_id` FOREIGN KEY (`venta_id`) REFERENCES `venta` (`id`),
                                 CONSTRAINT `fk_productos_id` FOREIGN KEY (`productos_id`) REFERENCES `productos` (`id`));
+                                
+---------------------------------------------------------------------------------------------------------
+SELECT * FROM java.productos;
+INSERT INTO productos (sku, descripción, precio_compra, precio_venta, stock, fecha_alta) 
+VALUES ('', 'Lucas', 'Montoby', '1983-02-15'), 
+('29682960', 'Agustín', 'Montoby', '1980-02-15'),
+('29682961', 'Nicolas', 'Montoby', '1979-02-15');
+
+
+SELECT * FROM java.productos;
+INSERT INTO productos (sku, descripcion, precio_compra, precio_venta, stock, fecha_alta) 
+VALUES ('12345', 'Cocacola', '300', '400', '10', '2021-09-10'), 
+('123456', 'Fanta', '300', '400', '10', '2021-08-10'), 
+('123457', 'Sprite', '300', '400', '10', '2021-07-10');
+
+
