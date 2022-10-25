@@ -28,7 +28,6 @@ public class ClientesService {
         return this.clientesRepository.findAll();
     }
 
-
     public ClientesModel update(ClientesModel clientesUpdate, Long id) throws ResourceNotFoundException {
         Optional<ClientesModel> clientesBD = this.clientesRepository.findById(id);
         if (ClientesService.isPresent()){
@@ -57,7 +56,6 @@ public class ClientesService {
         }
         throw new ResourceNotFoundException("El cliente no existe");
     }
-    
     
     public ClientesModel findById(Long id) throws ResourceNotFoundException {
         return this.clientesRepository.findById(id).get(); 

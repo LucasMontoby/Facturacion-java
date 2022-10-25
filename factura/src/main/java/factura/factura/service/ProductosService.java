@@ -25,7 +25,6 @@ public class ProductosService {
         return this.productosRepository.findAll();
     }
 
-
     public ProductosModel update(ProductosModel ProductosUpdate, Long id) throws ResourceNotFoundException {
         if (ProductosService.isPresent()){
             ProductosModel c = ProductosBD.get();
@@ -45,7 +44,6 @@ public class ProductosService {
         return false;
     }
 
-   
     // Metodo para Eliminar.
     public String delete(Long id) throws ResourceNotFoundException {
         if (ProductosBD.isPresent()) {
@@ -55,7 +53,6 @@ public class ProductosService {
         }
         throw new ResourceNotFoundException("El producto no existe");
     }
-    
     
     public ProductosModel findById(Long id) throws ResourceNotFoundException {
         return this.productosRepository.findById(id).get(); 
