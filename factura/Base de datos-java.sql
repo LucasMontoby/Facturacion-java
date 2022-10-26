@@ -32,8 +32,8 @@ create table productos (id int primary key auto_increment not null,
                                 CONSTRAINT `fk_productos_id` FOREIGN KEY (`productos_id`) REFERENCES `productos` (`id`));
                                 
 ---------------------------------------------------------------------------------------------------------
-SELECT * FROM java.productos;
-INSERT INTO productos (sku, descripción, precio_compra, precio_venta, stock, fecha_alta) 
+SELECT * FROM java.clientes;
+INSERT INTO clientes (dni, nombre, apellido, fecha_nacimiento) 
 VALUES ('', 'Lucas', 'Montoby', '1983-02-15'), 
 ('29682960', 'Agustín', 'Montoby', '1980-02-15'),
 ('29682961', 'Nicolas', 'Montoby', '1979-02-15');

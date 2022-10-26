@@ -49,7 +49,7 @@ public class ProductosService {
         if (ProductosBD.isPresent()) {
             ProductosBD.get();
             this.productosRepository.deleteById(id);
-            return "El cliente fue eliminado";
+            return "El producto fue eliminado";
         }
         throw new ResourceNotFoundException("El producto no existe");
     }

@@ -10,7 +10,7 @@ public class ControllerException {
 
     @ExceptionHandler({ResourceNotFoundException.class,IllegalArgumentException.class})
     public ResponseEntity<String> resourceNotFoundException(Exception ex){
-        return new ResponseEntity<>("EL CLIENTE NO EXISTE", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("Lo que buscas, no existe", HttpStatus.NOT_FOUND);
     }
 }
 

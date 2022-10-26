@@ -1,7 +1,6 @@
 package factura.factura;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,7 +10,7 @@ import factura.factura.repository.ProductosRepository;
 import factura.factura.repository.VentaRepository;
 
 @SpringBootApplication
-public class FacturaApplication implements CommandLineRunner {
+public class FacturaApplication {
 
 	@Autowired
 	ClientesRepository clientesModelRepository;
@@ -29,10 +28,4 @@ public class FacturaApplication implements CommandLineRunner {
     public static void main(String[] args) {
     	SpringApplication.run(FacturaApplication.class, args);
     }
-
-
-	@Override
-	public void run(String... args) throws Exception {
-		SpringApplication.run(FacturaApplication.class, args);
-	}
 }
