@@ -45,4 +45,13 @@ VALUES ('12345', 'Cocacola', '300', '400', '10', '2021-09-10'),
 ('123456', 'Fanta', '300', '400', '10', '2021-08-10'), 
 ('123457', 'Sprite', '300', '400', '10', '2021-07-10');
 
+SELECT * FROM java.venta;
+INSERT INTO venta (fecha_alta, total, clientes_id) 
+VALUES ('2021-04-12', '5000'),
+('2019-02-15', '8000'), 
+('2019-03-20', '7000');
+
+INSERT INTO venta (clientes_id) 
+VALUES (5);
+
 

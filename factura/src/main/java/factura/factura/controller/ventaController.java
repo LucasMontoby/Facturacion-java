@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import factura.factura.models.VentaModel;
 import factura.factura.service.VentaService;
 
-@RequestMapping(path = "api/clientes")
+@RequestMapping(path = "api/venta")
 @RestController
 
 public class ventaController {
