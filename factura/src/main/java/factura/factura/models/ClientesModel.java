@@ -1,8 +1,8 @@
 package factura.factura.models;
 
-import java.time.LocalDate;
-
 import lombok.Data;
+
+import java.time.LocalDate;
 
 import javax.persistence.*;
 

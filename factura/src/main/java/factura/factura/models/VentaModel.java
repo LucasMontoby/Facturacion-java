@@ -5,7 +5,6 @@ import lombok.Data;
 import java.time.LocalDate;
 
 import javax.persistence.*;
-
 @Data
 @Entity
 @Table(name = "venta")

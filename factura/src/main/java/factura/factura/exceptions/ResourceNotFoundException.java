@@ -1,4 +1,4 @@
-package factura.factura.controller;
+package factura.factura.exceptions;
 
 public class ResourceNotFoundException extends Exception{
 

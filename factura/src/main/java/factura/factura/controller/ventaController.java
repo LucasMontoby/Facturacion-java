@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import factura.factura.exceptions.ResourceAlreadyExistsException;
+import factura.factura.exceptions.ResourceNotFoundException;
 import factura.factura.models.VentaModel;
 import factura.factura.service.VentaService;
 
@@ -18,7 +20,7 @@ public class ventaController {
     private VentaService ventaService;
 
     @PostMapping("/")
-    public ResponseEntity<VentaModel> create(@RequestBody VentaModel venta){
+    public ResponseEntity<VentaModel> create(@RequestBody VentaModel venta) throws ResourceAlreadyExistsException{
         return new ResponseEntity<>(this.ventaService.create(venta), HttpStatus.OK);
     }
 

@@ -9,19 +9,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Transient;
 import org.springframework.stereotype.Service;
 
-import factura.factura.controller.ResourceNotFoundException;
+import factura.factura.exceptions.ResourceAlreadyExistsException;
+import factura.factura.exceptions.ResourceNotFoundException;
 import factura.factura.models.ClientesModel;
 import factura.factura.repository.ClientesRepository;
+import factura.factura.validator.ClientesValidator;
 
 @Service
 public class ClientesService {
-    
+
     @Autowired
     private ClientesRepository clientesRepository;
    
+    // Sin validación--------------------------------------------
+    // public ClientesModel create (ClientesModel newCliente) {
+    //     return this.clientesRepository.save(newCliente);
+    // }
+    
+    @Autowired
+    private ClientesValidator clientesValidator;
 
-    public ClientesModel create (ClientesModel newCliente){
-        return this.clientesRepository.save(newCliente);
+    @Transient private Integer edad;
+
+    public ClientesModel create (ClientesModel newCliente) throws ResourceAlreadyExistsException {
+        this.clientesValidator.validate(newCliente);
+
+        Optional<ClientesModel> clientesDB = this.clientesRepository.findByDni(newCliente.getDni());
+        if (clientesDB.isPresent()){
+            throw new ResourceAlreadyExistsException("Ya existe un cliente con el DNI brindado. Verificar");
+        }else{
+            return this.clientesRepository.save(newCliente);
+        }
     }
 
     public List<ClientesModel> findAll(){
@@ -41,7 +59,7 @@ public class ClientesService {
             throw new ResourceNotFoundException("El cliente no existe");
         }
     }
-
+    
     private static boolean isPresent() {
         return false;
     }
@@ -56,16 +74,14 @@ public class ClientesService {
         }
         throw new ResourceNotFoundException("El cliente no existe");
     }
-    
+
     public ClientesModel findById(Long id) throws ResourceNotFoundException {
         return this.clientesRepository.findById(id).get(); 
     }
+    public long getEdad() { return Period.between(this.getFechaNacimiento(), LocalDate.now()).get(null); }
 
-    @Transient private Integer edad;
     private LocalDate getFechaNacimiento() {
         return null;
     }
-
-    public long getEdad() { return Period.between(this.getFechaNacimiento(), LocalDate.now()).get(null); }
 
 }

@@ -1,13 +1,15 @@
 package factura.factura.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import factura.factura.exceptions.ResourceAlreadyExistsException;
+import factura.factura.exceptions.ResourceNotFoundException;
 import factura.factura.models.ClientesModel;
 import factura.factura.service.ClientesService;
 
@@ -19,7 +21,7 @@ public class ClientesController {
     private ClientesService clientesService;
 
     @PostMapping("/")
-    public ResponseEntity<ClientesModel> create(@RequestBody ClientesModel clientes){
+    public ResponseEntity<ClientesModel> create(@RequestBody @Validated ClientesModel clientes) throws ResourceAlreadyExistsException{
         return new ResponseEntity<>(this.clientesService.create(clientes), HttpStatus.OK);
     }
 
